@@ -22,8 +22,6 @@ public class ProjectDBServiceTest extends AbstractTest {
 
 	private ProjectDBService projectDBService;
 
-	Project project = new Project();
-
 	@Before
 	public void init() throws Exception {
 
@@ -33,6 +31,7 @@ public class ProjectDBServiceTest extends AbstractTest {
 	@Test
 	public void testInsert() {
 
+		Project project = new Project();
 		project.setProjectCode(112300);
 		project.setProjectName("Digilevering");
 		getTransaction().begin();
@@ -44,6 +43,8 @@ public class ProjectDBServiceTest extends AbstractTest {
 
 	@Test
 	public void testUpdate() {
+
+		Project project = new Project();
 		project.setProjectCode(12390);
 		project.setProjectName("UmDashboard");
 		getTransaction().begin();

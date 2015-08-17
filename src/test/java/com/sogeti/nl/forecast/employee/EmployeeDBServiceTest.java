@@ -19,17 +19,17 @@ public class EmployeeDBServiceTest extends AbstractTest {
 
 	private EmployeeDBService employeeDBService;
 
-	Employee employee = new Employee();
-
 	@Before
 	public void init() throws Exception {
+		
 		this.employeeDBService = new EmployeeDBService();
 
 	}
 
 	@Test
 	public void testInsert() {
-
+		
+		Employee employee = new Employee();
 		employee.setFirstName("Trushana");
 		employee.setLastName("Akhade");
 		employee.setEmployeeId(60683);
