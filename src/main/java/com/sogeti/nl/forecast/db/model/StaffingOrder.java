@@ -1,4 +1,4 @@
-package com.sogeti.nl.model;
+package com.sogeti.nl.forecast.db.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +15,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.sogeti.nl.forecast.enums.Grade;
+import com.sogeti.nl.forecast.enums.SOStatus;
+
 /**
  * 
  */
@@ -25,7 +28,7 @@ import javax.persistence.Transient;
  */
 
 @Entity
-public class So implements Serializable {
+public class StaffingOrder implements Serializable {
 
 	/**
 	 * 
@@ -33,11 +36,11 @@ public class So implements Serializable {
 	private static final long serialVersionUID = 3659232658305423084L;
 
 	@Id
-	@Column(name = "Id",length=6)
+	@Column(name = "Id", length = 6)
 	@GeneratedValue
 	private Integer id;
-	
-	@Column(name = "SO_Reference_No",length=20)
+
+	@Column(name = "SO_Reference_No", length = 20)
 	private String soReferenceNo;
 
 	@Column(name = "Requested_Start_Date")
@@ -57,15 +60,15 @@ public class So implements Serializable {
 	@JoinColumn(name = "Employee_Id", nullable = true)
 	private Employee employee;
 
-	
-	@Column(name = "Grade",length=10)
+	@Column(name = "Grade", length = 10)
+	@Enumerated(EnumType.ORDINAL)
 	private Grade grade;
 
-	public enum status {
-		open, closed, cancelled
-	}
+	@Column(name = "SO_Status", length = 15)
+	@Enumerated(EnumType.ORDINAL)
+	private SOStatus SOStatus;
 
-	public So() {
+	public StaffingOrder() {
 	}
 
 	/**
@@ -74,16 +77,14 @@ public class So implements Serializable {
 	 * @param requestedstartdate
 	 * @param Project
 	 */
-	public So(Integer id, String soreferenceno, Date requestedstartdate,
-			Project Project) {
+	public StaffingOrder(Integer id, String soreferenceno,
+			Date requestedstartdate, Project Project) {
 		super();
 		this.id = id;
 		this.soReferenceNo = soreferenceno;
 		this.requestedStartDate = requestedstartdate;
 		this.setProject(Project);
 	}
-
-	
 
 	/**
 	 * primary key for SO
@@ -97,7 +98,8 @@ public class So implements Serializable {
 	/**
 	 * Primary Key for SO
 	 * 
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
@@ -111,7 +113,8 @@ public class So implements Serializable {
 	}
 
 	/**
-	 * @param soReferenceNo the soReferenceNo to set
+	 * @param soReferenceNo
+	 *            the soReferenceNo to set
 	 */
 	public void setSoReferenceNo(String soReferenceNo) {
 		this.soReferenceNo = soReferenceNo;
@@ -132,7 +135,8 @@ public class So implements Serializable {
 	}
 
 	/**
-	 * @param requestedStartDate the requestedStartDate to set
+	 * @param requestedStartDate
+	 *            the requestedStartDate to set
 	 */
 	public void setRequestedStartDate(Date requestedStartDate) {
 		this.requestedStartDate = requestedStartDate;
@@ -141,7 +145,7 @@ public class So implements Serializable {
 	/**
 	 * @return the grade
 	 */
-	@Enumerated(EnumType.ORDINAL)
+
 	public Grade getGrade() {
 		return grade;
 	}
@@ -184,6 +188,21 @@ public class So implements Serializable {
 	 */
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	/**
+	 * @return the sOStatus
+	 */
+	public SOStatus getSOStatus() {
+		return SOStatus;
+	}
+
+	/**
+	 * @param sOStatus
+	 *            the sOStatus to set
+	 */
+	public void setSOStatus(SOStatus sOStatus) {
+		SOStatus = sOStatus;
 	}
 
 }

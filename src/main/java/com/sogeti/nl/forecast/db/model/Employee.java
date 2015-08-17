@@ -1,17 +1,19 @@
-package com.sogeti.nl.model;
+package com.sogeti.nl.forecast.db.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+
+import com.sogeti.nl.forecast.enums.Billability;
+import com.sogeti.nl.forecast.enums.Status;
 
 /**
  * 
@@ -30,20 +32,18 @@ public class Employee implements Serializable {
 	private static final long serialVersionUID = -2406710590232126120L;
 
 	@Id
-	@Column(name = "Id",length=6)
+	@Column(name = "Id", length = 6)
 	@GeneratedValue
 	private Integer id;
-	
-	@Column(name = "Employee_Id",length=6)
+
+	@Column(name = "Employee_Id", length = 6)
 	private Integer employeeId;
 
-	@Column(name = "First_Name",length=30)
+	@Column(name = "First_Name", length = 30)
 	private String firstName;
-	
-	@Column(name = "Last_Name",length=30)
-	private String lastName;
-	
 
+	@Column(name = "Last_Name", length = 30)
+	private String lastName;
 
 	@Column(name = "Release_Date")
 	private Date releaseDate;
@@ -56,13 +56,13 @@ public class Employee implements Serializable {
 	@JoinColumn(name = "project_Code", nullable = true)
 	private Project project;
 
-	public enum billabilty {
-		billable, nonbillable, bench
-	}
+	@Column(name = "Status", length = 10)
+	@Enumerated(EnumType.ORDINAL)
+	private Status status;
 
-	public enum status {
-		active, inactive
-	}
+	@Column(name = "Billability", length = 15)
+	@Enumerated(EnumType.ORDINAL)
+	private Billability billability;
 
 	public Employee() {
 	}
@@ -75,7 +75,7 @@ public class Employee implements Serializable {
 	 * @param Project
 	 */
 	public Employee(Integer employeeId, String firstName, String lastName,
-			Date releaseDate, com.sogeti.nl.model.Project Project) {
+			Date releaseDate, com.sogeti.nl.forecast.db.model.Project Project) {
 		super();
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -83,8 +83,6 @@ public class Employee implements Serializable {
 		this.releaseDate = releaseDate;
 		this.setProject(Project);
 	}
-	
-	
 
 	/**
 	 * @return the id
@@ -94,7 +92,8 @@ public class Employee implements Serializable {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
@@ -191,6 +190,36 @@ public class Employee implements Serializable {
 	 */
 	public void setProject(Project project) {
 		this.project = project;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status
+	 *            the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the billability
+	 */
+	public Billability getBillability() {
+		return billability;
+	}
+
+	/**
+	 * @param billability
+	 *            the billability to set
+	 */
+	public void setBillability(Billability billability) {
+		this.billability = billability;
 	}
 
 }

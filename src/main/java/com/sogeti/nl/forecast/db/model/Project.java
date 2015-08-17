@@ -1,12 +1,15 @@
-package com.sogeti.nl.model;
+package com.sogeti.nl.forecast.db.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import com.sogeti.nl.forecast.enums.Status;
 
 /**
  * @author takhade
@@ -16,27 +19,28 @@ import javax.persistence.Table;
 public class Project {
 
 	@Id
-	@Column(name = "ID",length=5)
+	@Column(name = "ID", length = 5)
 	@GeneratedValue
 	private Integer Id;
-	
-	@Column(name = "Project_Name",length=30)
+
+	@Column(name = "Project_Name", length = 30)
 	private String projectName;
 
-	@Column(name = "Project_Code",length=15)
+	@Column(name = "Project_Code", length = 15)
 	private Integer projectCode;
-	
-	@Column(name = "Future_Project_Code",length=15)
+
+	@Column(name = "Future_Project_Code", length = 15)
 	private Integer futureProjectCode;
 
 	@ManyToOne
 	@JoinColumn(name = "Region_Code")
 	private Region region;
 
-	public enum status {
-		active, inactive
-	}
+	@Column(name = "Status", length = 10)
+	@Enumerated(EnumType.ORDINAL)
+	private Status status;
 
+	
 	public Project() {
 	}
 
@@ -131,5 +135,34 @@ public class Project {
 	public void setProjectCode(Integer projectCode) {
 		this.projectCode = projectCode;
 	}
+	
+	/**
+	 * @return the futureProjectCode
+	 */
+	public Integer getFutureProjectCode() {
+		return futureProjectCode;
+	}
+
+	/**
+	 * @param futureProjectCode the futureProjectCode to set
+	 */
+	public void setFutureProjectCode(Integer futureProjectCode) {
+		this.futureProjectCode = futureProjectCode;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 
 }

@@ -1,11 +1,15 @@
-package com.sogeti.nl.model;
+package com.sogeti.nl.forecast.db.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import com.sogeti.nl.forecast.enums.Status;
 
 /**
  * 
@@ -24,16 +28,17 @@ public class Region implements Serializable {
 	private static final long serialVersionUID = -5704222503252328862L;
 
 	@Id
-	@Column(name = "Region_Code",length=2)
+	@Column(name = "Region_Code", length = 2)
 	@GeneratedValue
 	private String regionCode;
-	@Column(name = "Region_Name",length=20)
+	
+	@Column(name = "Region_Name", length = 20)
 	private String regionName;
 
-	public enum status {
-		active, inactive
-	}
-
+	@Column(name = "Status", length = 10)
+	@Enumerated(EnumType.ORDINAL)
+	private Status status;
+	
 	public Region() {
 	}
 
@@ -85,6 +90,21 @@ public class Region implements Serializable {
 	 */
 	public void setRegionName(String regionName) {
 		this.regionName = regionName;
+	}
+
+
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 }

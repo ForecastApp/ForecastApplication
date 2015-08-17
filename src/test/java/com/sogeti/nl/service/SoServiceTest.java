@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import com.sogeti.nl.forecast.common.AbstractTest;
+
 /**
  * @author takhade
  *
@@ -40,7 +42,7 @@ public class SoServiceTest extends AbstractTest  {
 		try{
 			getEntityManager().getTransaction().begin();
 		
-			So so=new So();
+			StaffingOrder so=new StaffingOrder();
 			so.setSoreferenceno("SATest");
 			so.setId(1);
 			
