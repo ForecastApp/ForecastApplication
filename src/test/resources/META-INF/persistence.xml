@@ -6,10 +6,10 @@
 	<persistence-unit name="manager" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>com.sogeti.nl.model.Region</class>
-		<class>com.sogeti.nl.model.Project</class>
-		<class>com.sogeti.nl.model.Employee</class>
-		<class>com.sogeti.nl.model.So</class>
+		<class>com.sogeti.nl.forecast.db.model.Region</class>
+		<class>com.sogeti.nl.forecast.db.model.Project</class>
+		<class>com.sogeti.nl.forecast.db.model.Employee</class>
+		<class>com.sogeti.nl.forecast.db.model.StaffingOrder</class>
 
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

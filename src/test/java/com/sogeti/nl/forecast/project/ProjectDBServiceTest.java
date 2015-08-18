@@ -12,6 +12,7 @@ import org.junit.runners.JUnit4;
 import com.sogeti.nl.forecast.common.AbstractTest;
 import com.sogeti.nl.forecast.db.model.Project;
 import com.sogeti.nl.forecast.db.service.ProjectDBService;
+import com.sogeti.nl.forecast.enums.Status;
 
 /**
  * @author takhade
@@ -25,30 +26,32 @@ public class ProjectDBServiceTest extends AbstractTest {
 	@Before
 	public void init() throws Exception {
 
-		this.projectDBService = new ProjectDBService();
+		projectDBService = new ProjectDBService();
+		projectDBService.setEntityManager(getEntityManager());
 	}
 
+	public void insertProject(){
+		
+	}
+	
+	
 	@Test
-	public void testInsert() {
+	public void testInsertProject() {
 
 		Project project = new Project();
 		project.setProjectCode(112300);
 		project.setProjectName("Digilevering");
+		project.setStatus(Status.active);
 		getTransaction().begin();
-		getEntityManager().persist(project);
+		projectDBService.persist(project);
 		getTransaction().commit();
 		Assert.assertNotNull(project.getId());
 
 	}
-
-	@Test
-	public void testUpdate() {
-
-		Project project = new Project();
-		project.setProjectCode(12390);
-		project.setProjectName("UmDashboard");
-		getTransaction().begin();
-
+	
+	public void testSearchProject(){
+		
 	}
 
+	
 }

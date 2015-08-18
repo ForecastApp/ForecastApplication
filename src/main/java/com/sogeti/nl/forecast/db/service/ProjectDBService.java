@@ -14,10 +14,5 @@ import com.sogeti.nl.forecast.db.model.Project;
 @Stateless
 public class ProjectDBService extends CrudService {
 
-	public Project persist(Project project) {
-		getEntityManager().persist(project);
-		return project;
-
-	}
 
 }
