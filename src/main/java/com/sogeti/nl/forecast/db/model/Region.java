@@ -31,31 +31,33 @@ public class Region implements Serializable {
 	@Column(name = "Id", length = 6)
 	@GeneratedValue
 	private Integer id;
-	
-	
+
 	@Column(name = "Region_Code", length = 2)
 	private String regionCode;
-	
+
 	@Column(name = "Region_Name", length = 20)
 	private String regionName;
 
 	@Column(name = "Status", length = 10)
 	@Enumerated(EnumType.ORDINAL)
 	private Status status;
-	
+
 	public Region() {
 	}
 
 	/**
+	 * @param id
 	 * @param regionCode
 	 * @param regionName
-	 * @param project
+	 * @param status
 	 */
-	public Region(String regionCode, String regionName) {
+	public Region(Integer id, String regionCode, String regionName,
+			Status status) {
 		super();
+		this.id = id;
 		this.regionCode = regionCode;
 		this.regionName = regionName;
-
+		this.status = status;
 	}
 
 	/**
@@ -70,14 +72,14 @@ public class Region implements Serializable {
 	/**
 	 * Primary Key for Region
 	 * 
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	/**
-	 * Primary Key for Region
 	 * 
 	 * @return the regionCode
 	 */
@@ -86,7 +88,6 @@ public class Region implements Serializable {
 	}
 
 	/**
-	 * Primary Key for Region
 	 * 
 	 * @param regionCode
 	 *            the regionCode to set
@@ -114,7 +115,6 @@ public class Region implements Serializable {
 		this.regionName = regionName;
 	}
 
-
 	/**
 	 * @return the status
 	 */
@@ -123,7 +123,8 @@ public class Region implements Serializable {
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(Status status) {
 		this.status = status;

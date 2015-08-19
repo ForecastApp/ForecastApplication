@@ -7,40 +7,40 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
-	
+
+
 </h:head>
 
 <h:body>
 
-<ui:composition template="template.xhtml">
-    <ui:define name="title">
-  <p:growl id="msgs" showDetail="true" />
-   <p:tabView>
-     <p:ajax event="tabChange" listener="#{testBean1.onChange}" />
-        <p:tab title="SO" id="soTab">
-        		<ui:insert name="so" >
-                <ui:include src="../staffingOrder/staffingOrderOverview.xhtml"></ui:include>
-                </ui:insert>
-        </p:tab>
-        <p:tab title="Region" id="regionTab">
-        		<ui:insert name="region" >
-               <ui:include src="../region/regionOverview.xhtml"></ui:include>
-               </ui:insert>
-        </p:tab>
-        <p:tab title="Project" id="projectTab">
-        		<ui:insert name="project" >
-               <ui:include src="../project/projectOverview.xhtml"></ui:include>
-               </ui:insert>
-        </p:tab>
-         <p:tab title="Employee" id="employeeTab">
-         		<ui:insert name="favorites" >
-               <ui:include src="../employee/employeeOverview.xhtml"></ui:include>
-               </ui:insert>
-        </p:tab>
-    </p:tabView>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">
+			<p:growl id="msgs" showDetail="true" />
+			<p:tabView>
+				<p:ajax event="tabChange" listener="#{testBean1.onChange}" />
+				<p:tab title="SO" id="soTab">
+					<ui:insert name="so">
+						<ui:include src="../staffingOrder/staffingOrderOverview.xhtml"></ui:include>
+					</ui:insert>
+				</p:tab>
+				<p:tab title="Region" id="regionTab">
+					<ui:insert name="region">
+						<ui:include src="../region/regionOverview.xhtml"></ui:include>
+					</ui:insert>
+				</p:tab>
+				<p:tab title="Project" id="projectTab">
+					<ui:insert name="project">
+						<ui:include src="../project/projectOverview.xhtml"></ui:include>
+					</ui:insert>
+				</p:tab>
+				<p:tab title="Employee" id="employeeTab">
+					<ui:insert name="favorites">
+						<ui:include src="../employee/employeeOverview.xhtml"></ui:include>
+					</ui:insert>
+				</p:tab>
+			</p:tabView>
 
-  </ui:define>
-    </ui:composition>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

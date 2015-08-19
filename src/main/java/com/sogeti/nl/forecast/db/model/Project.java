@@ -40,7 +40,6 @@ public class Project {
 	@Enumerated(EnumType.ORDINAL)
 	private Status status;
 
-	
 	public Project() {
 	}
 
@@ -48,15 +47,19 @@ public class Project {
 	 * @param id
 	 * @param projectName
 	 * @param projectCode
+	 * @param futureProjectCode
 	 * @param region
+	 * @param status
 	 */
 	public Project(Integer id, String projectName, Integer projectCode,
-			Region region) {
+			Integer futureProjectCode, Region region, Status status) {
 		super();
 		Id = id;
 		this.projectName = projectName;
 		this.projectCode = projectCode;
+		this.futureProjectCode = futureProjectCode;
 		this.region = region;
+		this.status = status;
 	}
 
 	/**
@@ -135,7 +138,7 @@ public class Project {
 	public void setProjectCode(Integer projectCode) {
 		this.projectCode = projectCode;
 	}
-	
+
 	/**
 	 * @return the futureProjectCode
 	 */
@@ -144,7 +147,8 @@ public class Project {
 	}
 
 	/**
-	 * @param futureProjectCode the futureProjectCode to set
+	 * @param futureProjectCode
+	 *            the futureProjectCode to set
 	 */
 	public void setFutureProjectCode(Integer futureProjectCode) {
 		this.futureProjectCode = futureProjectCode;
@@ -158,11 +162,11 @@ public class Project {
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
 
 }

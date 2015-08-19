@@ -7,45 +7,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
+
 </h:head>
 
 <h:body>
-<p:layout style="height:200px">
+	<p:layout style="height:200px">
 
-<p:layoutUnit position="center">
-<p:panelGrid columns="2" cellpadding="10" >
-			<p:inputText style="margin-right:100px" placeholder="Search" />
-            <p:commandButton type="button" value="Search" icon="ui-icon-search" />
-</p:panelGrid>
-<h:form>
-<p:dataTable var="table1" value="Region Table">
-    
-    <p:column headerText="Region Code">
-        <h:outputText value="NL" />
-    </p:column>
- 
-   <p:column headerText="Region Name">
-        <h:outputText value="Netherland" />
-    </p:column>
-    
-    <p:column headerText="Status">
-        <h:outputText value="Active" />
-    </p:column>
-    
-     <p:column headerText="Action">
-   <a href="screens/region/updateRegion.xhtml">Update</a> 
-    </p:column>
- 
-</p:dataTable>
-</h:form>
+		<p:layoutUnit position="center">
+			<p:panelGrid columns="2" cellpadding="10">
+				<p:inputText style="margin-right:100px" placeholder="Search" />
+				<p:commandButton type="button" value="Search" icon="ui-icon-search" />
+			</p:panelGrid>
+			<h:form>
+				<p:dataTable var="table1" value="Region Table">
 
-<p:panelGrid columns="2">
- <a href="screens/region/createRegion.xhtml">Create new Region</a> 
+					<p:column headerText="Region Code">
+						<h:outputText value="NL" />
+					</p:column>
 
-</p:panelGrid>  
- </p:layoutUnit>
-  
-  </p:layout>          
+					<p:column headerText="Region Name">
+						<h:outputText value="Netherland" />
+					</p:column>
+
+					<p:column headerText="Status">
+						<h:outputText value="Active" />
+					</p:column>
+
+					<p:column headerText="Action">
+						<a href="screens/region/updateRegion.xhtml">Update</a>
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+			<p:panelGrid columns="2">
+				<a href="screens/region/createRegion.xhtml">Create new Region</a>
+
+			</p:panelGrid>
+		</p:layoutUnit>
+
+	</p:layout>
 </h:body>
 </html>

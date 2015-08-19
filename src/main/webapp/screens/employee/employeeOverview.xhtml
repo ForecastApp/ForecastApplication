@@ -7,67 +7,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
-	
+
+
 </h:head>
 
 <h:body>
-<p:layout style="height:500px">
-<p:layoutUnit position="center" size="200">
+	<p:layout style="height:500px">
+		<p:layoutUnit position="center" size="200">
 
-<p:panelGrid columns="2">
-			<p:inputText  placeholder="Search" />
-            <p:commandButton type="button" value="Search" icon="ui-icon-search" />
-</p:panelGrid>
+			<p:panelGrid columns="2">
+				<p:inputText placeholder="Search" />
+				<p:commandButton type="button" value="Search" icon="ui-icon-search" />
+			</p:panelGrid>
 
-<h:form>
-<p:dataTable var="table1" value="Employee Table">
+			<h:form>
+				<p:dataTable var="table1" value="Employee Table">
 
-<p:column headerText="Employee Id">
-        <h:outputText value="35434" />
-</p:column>
-    
-    <p:column headerText="First Name">
-        <h:outputText value="Shweta" />
-    </p:column>
-    
-    <p:column headerText="Last Name">
-        <h:outputText value="Dhotre" />
-    </p:column>
- 
-    <p:column headerText="Grade">
-        <h:outputText value="P1" />
-    </p:column>
- 
-    <p:column headerText="Project Code">
-        <h:outputText value="73413" />
-    </p:column>
- 
-    <p:column headerText="Release Date">
-        <h:outputText value="22-09-2015" />
-    </p:column>
-    
-    <p:column headerText="Billability">
-        <h:outputText value="BT" />
-    </p:column>
-    
-     <p:column headerText="Status">
-        <h:outputText value="Active" />
-    </p:column>
-    
-     <p:column headerText="Action">
-     <a href="screens/employee/updateEmployee.xhtml">Update</a> 
-    </p:column>
-    </p:dataTable>
-    </h:form>
+					<p:column headerText="Employee Id">
+						<h:outputText value="35434" />
+					</p:column>
 
-<p:panelGrid columns="2">
-  <a href="screens/employee/createEmployee.xhtml">Create new Employee</a> 
+					<p:column headerText="First Name">
+						<h:outputText value="Shweta" />
+					</p:column>
 
-</p:panelGrid>
-    
-</p:layoutUnit>
+					<p:column headerText="Last Name">
+						<h:outputText value="Dhotre" />
+					</p:column>
 
-</p:layout>
+					<p:column headerText="Grade">
+						<h:outputText value="P1" />
+					</p:column>
+
+					<p:column headerText="Project Code">
+						<h:outputText value="73413" />
+					</p:column>
+
+					<p:column headerText="Release Date">
+						<h:outputText value="22-09-2015" />
+					</p:column>
+
+					<p:column headerText="Billability">
+						<h:outputText value="BT" />
+					</p:column>
+
+					<p:column headerText="Status">
+						<h:outputText value="Active" />
+					</p:column>
+
+					<p:column headerText="Action">
+						<a href="screens/employee/updateEmployee.xhtml">Update</a>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+			<p:panelGrid columns="2">
+				<a href="screens/employee/createEmployee.xhtml">Create new
+					Employee</a>
+
+			</p:panelGrid>
+
+		</p:layoutUnit>
+
+	</p:layout>
 </h:body>
 </html>

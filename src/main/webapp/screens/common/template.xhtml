@@ -6,28 +6,28 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<h:head>
-	</h:head>
-	
-	<h:body>
+<h:head>
+</h:head>
 
-<p:layout fullPage="true" resizeTitle="resize">
- <p:layoutUnit position="north" size="100" id="header">
- <ui:insert name="header">
- 	<ui:include src="header.xhtml" />
- </ui:insert>
- </p:layoutUnit>
+<h:body>
 
- <p:layoutUnit position="center" size="500" id="content"> 
-    <ui:insert name="title" />
- </p:layoutUnit>
- 
-<p:layoutUnit position="south" size="100" id="footer">
- <ui:insert name="footer">
- 	<ui:include src="footer.xhtml" />
- </ui:insert>
- </p:layoutUnit>
- 
-</p:layout>
-	</h:body>
+	<p:layout fullPage="true" resizeTitle="resize">
+		<p:layoutUnit position="north" size="100" id="header">
+			<ui:insert name="header">
+				<ui:include src="header.xhtml" />
+			</ui:insert>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center" size="500" id="content">
+			<ui:insert name="title" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="100" id="footer">
+			<ui:insert name="footer">
+				<ui:include src="footer.xhtml" />
+			</ui:insert>
+		</p:layoutUnit>
+
+	</p:layout>
+</h:body>
 </html>

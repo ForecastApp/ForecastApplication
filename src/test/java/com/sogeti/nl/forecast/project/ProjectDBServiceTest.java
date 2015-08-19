@@ -3,6 +3,7 @@
  */
 package com.sogeti.nl.forecast.project;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,9 @@ import com.sogeti.nl.forecast.enums.Status;
 
 /**
  * @author takhade
+ * 
+ *         ProjectDBServiceTest class extends AbstractTest class
+ * 
  *
  */
 @RunWith(JUnit4.class)
@@ -24,10 +28,19 @@ public class ProjectDBServiceTest extends AbstractTest {
 	private ProjectDBService projectDBService;
 
 	@Before
-	public void init() throws Exception {
+	public void setUp() {
 
 		projectDBService = new ProjectDBService();
 		projectDBService.setEntityManager(getEntityManager());
+		getTransaction().begin();
+
+	}
+
+	@After
+	public void teardown() {
+		if (getTransaction().isActive()) {
+			getTransaction().rollback();
+		}
 	}
 
 	private Project createProject(int projectCode, String projectName) {
@@ -44,9 +57,7 @@ public class ProjectDBServiceTest extends AbstractTest {
 	public void testInsertProject() {
 
 		Project project = createProject(123454, "Digilevering");
-		getTransaction().begin();
 		projectDBService.persist(project);
-		getTransaction().commit();
 		Assert.assertNotNull(project.getId());
 
 	}
@@ -55,9 +66,7 @@ public class ProjectDBServiceTest extends AbstractTest {
 	public void testSearchProject() {
 
 		Project project = createProject(34567, "ForecastApp");
-		getTransaction().begin();
 		projectDBService.persist(project);
-		getTransaction().commit();
 		project = projectDBService.findByProperty(Project.class, "projectCode",
 				34567);
 		Assert.assertNotNull(project);
@@ -67,17 +76,13 @@ public class ProjectDBServiceTest extends AbstractTest {
 	@Test
 	public void testUpdateProject() {
 		Project project = createProject(56789, "UMDashboard");
-		getTransaction().begin();
 		projectDBService.persist(project);
-		getTransaction().commit();
 		project = projectDBService.findByProperty(Project.class, "projectCode",
 				56789);
 
 		project.setProjectName("NS HighSpeed");
 		project.setStatus(Status.inactive);
-		getTransaction().begin();
 		projectDBService.merge(project);
-		getTransaction().commit();
 		project = projectDBService.findByProperty(Project.class, "projectCode",
 				56789);
 		Assert.assertEquals(project.getProjectName(), "NS HighSpeed");

@@ -49,9 +49,8 @@ public class Employee implements Serializable {
 	private Date releaseDate;
 
 	/**
-	 * Foreign Key constraint Project_Code
+	 * Foreign Key constraint id
 	 */
-
 	@OneToOne
 	@JoinColumn(name = "project_Code", nullable = true)
 	private Project project;
@@ -68,23 +67,32 @@ public class Employee implements Serializable {
 	}
 
 	/**
+	 * @param id
 	 * @param employeeId
 	 * @param firstName
 	 * @param lastName
 	 * @param releaseDate
-	 * @param Project
+	 * @param project
+	 * @param status
+	 * @param billability
 	 */
-	public Employee(Integer employeeId, String firstName, String lastName,
-			Date releaseDate, com.sogeti.nl.forecast.db.model.Project Project) {
+	public Employee(Integer id, Integer employeeId, String firstName,
+			String lastName, Date releaseDate, Project project, Status status,
+			Billability billability) {
 		super();
+		this.id = id;
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.releaseDate = releaseDate;
-		this.setProject(Project);
+		this.project = project;
+		this.status = status;
+		this.billability = billability;
 	}
 
 	/**
+	 * Primary Key for Employee
+	 * 
 	 * @return the id
 	 */
 	public Integer getId() {
@@ -92,6 +100,8 @@ public class Employee implements Serializable {
 	}
 
 	/**
+	 * Primary Key for Employee
+	 * 
 	 * @param id
 	 *            the id to set
 	 */
@@ -100,7 +110,6 @@ public class Employee implements Serializable {
 	}
 
 	/**
-	 * Primary Key for Employee
 	 * 
 	 * @return the employeeId
 	 */
@@ -110,8 +119,7 @@ public class Employee implements Serializable {
 	}
 
 	/**
-	 * Primary Key for Employee
-	 * 
+	 *
 	 * @param employeeId
 	 *            the employeeId to set
 	 */

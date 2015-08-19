@@ -5,10 +5,10 @@ package com.sogeti.nl.forecast.db.service;
 
 import javax.ejb.Stateless;
 
-import com.sogeti.nl.forecast.db.model.Project;
-
 /**
  * @author takhade
+ * 
+ * Project DB service class extends CrudService for CRUD operations
  *
  */
 @Stateless

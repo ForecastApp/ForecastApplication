@@ -9,52 +9,57 @@
 
 <!--HEADER-->
 <h:head>
-	
+
 </h:head>
 <h:body>
-<ui:composition template="../common/template.xhtml">
-    <ui:define name="title">
-		<h:form id="form">
-			<p:panel id="panel" header="Update Region">
- 
-        <p:focus context="panel"/>
- 
-        <p:messages />
- 
-  <table>
-        <tr>
-       
-       <td><p:outputLabel for="regionCode" value="Region Code: " /></td>
-          <td><p:inputText id="regionCode" value="" required="true" label="regionCode">
-         <f:validateLength minimum="2" />
-            </p:inputText></td>
-           <p:message for="regionCode" />
- 		  </tr>
- 		
- 		  <tr>
- 		   <td><p:outputLabel for="regionName" value="Region name: " /></td>
-          <td><p:inputText id="regionName" value="" required="true" label="regionName">
-         <f:validateLength minimum="2" />
-            </p:inputText></td>
-           <p:message for="regionName" />
- 		  </tr>
- 		
- 		  <tr>
-        <td><p:outputLabel for="status" value="Status: " /></td>
-        <td><p:selectOneButton id="status" required="true" label="status">
-            <f:selectItem itemLabel="Active" itemValue="active" />
-            <f:selectItem itemLabel="Inactive" itemValue="inactive" />
-        </p:selectOneButton></td>
-          </tr>
-   </table>  
-   <p:panelGrid columns="3">      
-  <p:commandButton value="Update" icon="ui-icon-check" update="@parent" />
-  <p:commandButton value="Cancel" icon="ui-icon-close" update="@parent" />
-<a href="#{request.contextPath}">Back</a>
-  </p:panelGrid>
-</p:panel>
-</h:form>
-</ui:define>
-</ui:composition>
+	<ui:composition template="../common/template.xhtml">
+		<ui:define name="title">
+			<h:form id="form">
+				<p:panel id="panel" header="Update Region">
+
+					<p:focus context="panel" />
+
+					<p:messages />
+
+					<table>
+						<tr>
+
+							<td><p:outputLabel for="regionCode" value="Region Code: " /></td>
+							<td><p:inputText id="regionCode" value="" required="true"
+									label="regionCode">
+									<f:validateLength minimum="2" />
+								</p:inputText></td>
+							<p:message for="regionCode" />
+						</tr>
+
+						<tr>
+							<td><p:outputLabel for="regionName" value="Region name: " /></td>
+							<td><p:inputText id="regionName" value="" required="true"
+									label="regionName">
+									<f:validateLength minimum="2" />
+								</p:inputText></td>
+							<p:message for="regionName" />
+						</tr>
+
+						<tr>
+							<td><p:outputLabel for="status" value="Status: " /></td>
+							<td><p:selectOneButton id="status" required="true"
+									label="status">
+									<f:selectItem itemLabel="Active" itemValue="active" />
+									<f:selectItem itemLabel="Inactive" itemValue="inactive" />
+								</p:selectOneButton></td>
+						</tr>
+					</table>
+					<p:panelGrid columns="3">
+						<p:commandButton value="Update" icon="ui-icon-check"
+							update="@parent" />
+						<p:commandButton value="Cancel" icon="ui-icon-close"
+							update="@parent" />
+						<a href="#{request.contextPath}">Back</a>
+					</p:panelGrid>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

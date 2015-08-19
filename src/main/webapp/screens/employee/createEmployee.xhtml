@@ -9,89 +9,99 @@
 
 <!--HEADER-->
 <h:head>
-	
+
 </h:head>
 <h:body>
-<ui:composition template="../common/template.xhtml">
-    <ui:define name="title">
-		<h:form id="form">
-		<p:panel id="panel" header="New Employee">
- 
-        <p:focus context="panel"/>
- 
-        <p:messages />
- <table>
- 
-       <tr>
-       <td><p:outputLabel for="employeeId" value="Employee Id: " /></td>
-          <td><p:inputText id="employeeId" value="" required="true" label="employeeId">
-         <f:validateLength minimum="2" />
-            </p:inputText></td>
-           <p:message for="employeeId" />
- 		</tr>
- 		
- 		<tr>
- 		<td><p:outputLabel for="firstName" value="First Name: " /></td>
-         <td> <p:inputText id="firstName" value="" required="true" label="firstName">
-         <f:validateLength minimum="2" />
-            </p:inputText></td>
-           <p:message for="firstName" />
- 		</tr>
- 		
- 		<tr>
- 		<td><p:outputLabel for="lastName" value="Last Name: " /></td>
-         <td> <p:inputText id="lastName" value="" required="true" label="lastName">
-         <f:validateLength minimum="2" />
-            </p:inputText></td>
-           <p:message for="lastName" />
- 		</tr>
- 		
- 		<tr>
- 		
- 		   <td><p:outputLabel for="projectCode" value="Project code: " /></td>
-           <td> <p:selectOneMenu id="projectCode" style="width:230px" >
-                <f:selectItem itemLabel="Select Project code" itemValue="" noSelectionOption="true" />
-            </p:selectOneMenu></td>
-            
- 		
- 		</tr>
- 		
- 		<tr>
- 		
-           <td> <p:outputLabel for="grade" value="Grade: " /></td>
-           <td> <p:selectOneMenu id="grade" style="width:230px" required="true" label="grade">
-                <f:selectItem itemLabel="Select Grade" itemValue="" noSelectionOption="true" />
-            </p:selectOneMenu></td>
-            <p:message for="grade" />
-      
-      </tr>
-        
-       <tr>
-        <td><p:outputLabel for="status" value="Status: " /></td>
-        <td><p:selectOneButton id="status" required="true" label="status" >
-            <f:selectItem itemLabel="Active" itemValue="active" />
-            <f:selectItem itemLabel="Inactive" itemValue="inactive" />
-        </p:selectOneButton></td>
-       </tr>
-       
-           
-        <tr> 
-        <td><p:outputLabel for="billability" value="Billability: " /></td>
-        <td><p:selectOneButton id="billability" required="true" label="billability" >
-            <f:selectItem itemLabel="BT" itemValue="bt" />
-            <f:selectItem itemLabel="NBT" itemValue="nbt" />
-        </p:selectOneButton></td>
-       </tr>
-       </table> 
-        <p:panelGrid columns="3">   
-       <p:commandButton value="Create" icon="ui-icon-check" update="@parent" />
-   <p:commandButton value="Cancel" icon="ui-icon-close" update="@parent" />
-  <a href="#{request.contextPath}">Back</a>
-  </p:panelGrid>
-</p:panel>
-</h:form>
-</ui:define>
-</ui:composition>
+	<ui:composition template="../common/template.xhtml">
+		<ui:define name="title">
+			<h:form id="form">
+				<p:panel id="panel" header="New Employee">
+
+					<p:focus context="panel" />
+
+					<p:messages />
+					<table>
+
+						<tr>
+							<td><p:outputLabel for="employeeId" value="Employee Id: " /></td>
+							<td><p:inputText id="employeeId" value="" required="true"
+									label="employeeId">
+									<f:validateLength minimum="2" />
+								</p:inputText></td>
+							<p:message for="employeeId" />
+						</tr>
+
+						<tr>
+							<td><p:outputLabel for="firstName" value="First Name: " /></td>
+							<td><p:inputText id="firstName" value="" required="true"
+									label="firstName">
+									<f:validateLength minimum="2" />
+								</p:inputText></td>
+							<p:message for="firstName" />
+						</tr>
+
+						<tr>
+							<td><p:outputLabel for="lastName" value="Last Name: " /></td>
+							<td><p:inputText id="lastName" value="" required="true"
+									label="lastName">
+									<f:validateLength minimum="2" />
+								</p:inputText></td>
+							<p:message for="lastName" />
+						</tr>
+
+						<tr>
+
+							<td><p:outputLabel for="projectCode" value="Project code: " /></td>
+							<td><p:selectOneMenu id="projectCode" style="width:230px">
+									<f:selectItem itemLabel="Select Project code" itemValue=""
+										noSelectionOption="true" />
+								</p:selectOneMenu></td>
+
+
+						</tr>
+
+						<tr>
+
+							<td><p:outputLabel for="grade" value="Grade: " /></td>
+							<td><p:selectOneMenu id="grade" style="width:230px"
+									required="true" label="grade">
+									<f:selectItem itemLabel="Select Grade" itemValue=""
+										noSelectionOption="true" />
+								</p:selectOneMenu></td>
+							<p:message for="grade" />
+
+						</tr>
+
+						<tr>
+							<td><p:outputLabel for="status" value="Status: " /></td>
+							<td><p:selectOneButton id="status" required="true"
+									label="status">
+									<f:selectItem itemLabel="Active" itemValue="active" />
+									<f:selectItem itemLabel="Inactive" itemValue="inactive" />
+								</p:selectOneButton></td>
+						</tr>
+
+
+						<tr>
+							<td><p:outputLabel for="billability" value="Billability: " /></td>
+							<td><p:selectOneButton id="billability" required="true"
+									label="billability">
+									<f:selectItem itemLabel="BT" itemValue="bt" />
+									<f:selectItem itemLabel="NBT" itemValue="nbt" />
+								</p:selectOneButton></td>
+						</tr>
+					</table>
+					<p:panelGrid columns="3">
+						<p:commandButton value="Create" icon="ui-icon-check"
+							update="@parent" />
+						<p:commandButton value="Cancel" icon="ui-icon-close"
+							update="@parent" />
+						<a href="#{request.contextPath}">Back</a>
+					</p:panelGrid>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 
 </h:body>
 </html>
