@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<!--HEADER-->
+<h:head>
+	
+</h:head>
+<h:body>
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="title">
+		<h:form id="form">
+			<p:panel id="panel" header="New SO">
+ 
+        <p:focus context="panel"/>
+ 
+        <p:messages />
+ 
+	<table>
+	
+	<tr>
+       
+      <td> <p:outputLabel for="soReferenceNumber" value="SO Reference number" /></td>
+         <td> <p:inputText id="soReferenceNumber" value="" >
+         </p:inputText></td>
+      
+         </tr>
+      
+         
+ 		<tr>
+ 		
+ 		   <td><p:outputLabel for="projectCode" value="Project code: " /></td>
+           <td> <p:selectOneMenu id="projectCode" style="width:230px" required="true" label="projectCode">
+                <f:selectItem itemLabel="Select Project code" itemValue="" noSelectionOption="true" />
+            </p:selectOneMenu></td>
+            <p:message for="projectCode" />
+ 		
+ 		</tr>
+ 		
+ 		
+ 		<tr>
+ 		
+           <td> <p:outputLabel for="grade" value="Grade: " /></td>
+           <td> <p:selectOneMenu id="grade" style="width:230px" required="true" label="grade">
+                <f:selectItem itemLabel="Select Grade" itemValue="" noSelectionOption="true" />
+            </p:selectOneMenu></td>
+            <p:message for="grade" />
+      
+      </tr>
+      
+      <tr>
+      
+       <td> <p:outputLabel for="button" value="Requested Start date:" /></td>
+             <td><p:calendar id="button"  showOn="button" required="true" label="button" readonly="true" size="15"/></td>
+   
+       </tr>
+       
+       <tr>
+      
+        <td><h:outputText value="Skill set:  " /></td>
+            <td><p:inputTextarea rows="3" cols="22" counter="display" maxlength="10" counterTemplate="{0} characters remaining." autoResize="false"  /></td>
+    		<td><h:outputText id="display" /></td>
+    	
+		</tr>
+ </table> 
+ <p:panelGrid columns="3">   	
+  <p:commandButton value="Create" icon="ui-icon-check" update="@parent" />
+   <p:commandButton value="Cancel" icon="ui-icon-close" update="@parent" />
+ <a href="#{request.contextPath}">Back</a>
+  </p:panelGrid>
+</p:panel>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

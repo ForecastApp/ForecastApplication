@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+	
+</h:head>
+
+<h:body>
+<p:layout style="height:500px">
+
+<p:layoutUnit position="center">
+<p:panelGrid columns="2" cellpadding="10">
+			<p:inputText style="margin-right:100px" placeholder="Search" />
+            <p:commandButton type="button" value="Search" icon="ui-icon-search" />
+</p:panelGrid>
+   <h:form>     
+ <p:dataTable var="table1" value="Project Table">
+ 
+  <p:column headerText="Project Id">
+        <h:outputText value="2" />
+    </p:column>
+    
+    <p:column headerText="Project Code">
+        <h:outputText value="23413" />
+    </p:column>
+ 
+    <p:column headerText="Project Name">
+        <h:outputText value="UM Dashboard" />
+    </p:column>
+    
+    <p:column headerText="Region Code">
+        <h:outputText value="NL" />
+    </p:column>
+    
+    <p:column headerText="Status">
+        <h:outputText value="Active" />
+    </p:column>
+    
+    <p:column headerText="Action">
+     <a href="screens/project/updateProject.xhtml">Update</a> 
+    </p:column>   
+    </p:dataTable>
+    </h:form>
+    
+    <p:panelGrid columns="2">
+     <a href="screens/project/createProject.xhtml">Create New Project</a> 
+
+</p:panelGrid>
+ </p:layoutUnit>
+  
+  </p:layout> 
+</h:body>
+</html>

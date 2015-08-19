@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+	
+</h:head>
+
+<h:body>
+<p:layout style="height:200px">
+
+<p:layoutUnit position="center">
+<p:panelGrid columns="2">
+			<p:inputText placeholder="Search" />
+            <p:commandButton type="button" value="Search" icon="ui-icon-search" />
+</p:panelGrid>
+<h:form>
+<p:dataTable var="table1" value="Region Table" >
+ <p:column headerText="SO Reference No.">
+        <h:outputText value="2342" />
+    </p:column>
+ 
+    <p:column headerText="Grade">
+        <h:outputText value="P1" />
+    </p:column>
+ 
+    <p:column headerText="Project Code">
+        <h:outputText value="73413" />
+    </p:column>
+ 
+    <p:column headerText="Requested Start Date">
+        <h:outputText value="22-09-2015" />
+    </p:column>
+    
+    <p:column headerText="EmployeeId">
+        <h:outputText value="64443" />
+    </p:column>
+    
+    <p:column headerText="Status">
+        <h:outputText value="Close" />
+    </p:column>
+    
+    <p:column headerText="Skill Set">
+        <h:outputText value="Java" />
+    </p:column>
+    
+     <p:column headerText="Action">
+      
+ <a href="screens/staffingOrder/updateStaffingOrder.xhtml">Update</a> 
+    </p:column>
+    </p:dataTable>
+ <p:panelGrid columns="2">   
+<a href="screens/staffingOrder/createStaffingOrder.xhtml">Create new SO</a>
+
+</p:panelGrid>
+</h:form>
+ </p:layoutUnit>
+ 
+  </p:layout>          
+</h:body>
+</html>

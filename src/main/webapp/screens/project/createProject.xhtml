@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<!--HEADER-->
+<h:head>
+	
+</h:head>
+<h:body>
+<ui:composition template="../common/template.xhtml">
+    <ui:define name="title">
+		<h:form id="form">
+<p:panel id="panel" header="New Project">
+ <p:focus context="panel"/>
+<p:messages />
+ <table>
+ <tr>
+       <td><p:outputLabel for="projectCode" value="Project code: " /></td>
+          <td><p:inputText id="projectCode" value="" required="true" label="projectCode">
+         <f:validateLength minimum="2" />
+            </p:inputText></td>
+           <p:message for="projectCode" />
+ 		 </tr>
+ 		
+ 		 <tr>
+ 		   <td><p:outputLabel for="projectName" value="Project name: " /></td>
+          <td><p:inputText id="projectName" value="" required="true" label="projectName">
+         <f:validateLength minimum="2" />
+            </p:inputText></td>
+           <p:message for="projectName" />
+ 		 </tr>
+ 		
+ 		 <tr>
+            <td><p:outputLabel for="regionCode" value="Region code: " /></td>
+            <td><p:selectOneMenu id="regionCode" style="width:230px" required="true" label="regionCode">
+                <f:selectItem itemLabel="Select Region code" itemValue="" noSelectionOption="true" />
+            </p:selectOneMenu></td>
+            <p:message for="regionCode" />
+             </tr>
+   </table>
+    <p:panelGrid columns="3">  
+   <p:commandButton value="Create" icon="ui-icon-check" update="@parent" />
+  <p:commandButton value="Cancel" icon="ui-icon-close" update="@parent" />
+<a href="#{request.contextPath}">Back</a>
+  </p:panelGrid>
+</p:panel>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

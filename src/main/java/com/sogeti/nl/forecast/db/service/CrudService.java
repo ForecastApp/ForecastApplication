@@ -28,7 +28,7 @@ import javax.persistence.criteria.Root;
 public class CrudService {
 
 	/** The entity manager. */
-	@PersistenceContext(name = "data-unit")
+	@PersistenceContext(name = "forecast")
 	private EntityManager entityManager;
 
 	/**

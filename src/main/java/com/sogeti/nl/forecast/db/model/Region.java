@@ -28,8 +28,12 @@ public class Region implements Serializable {
 	private static final long serialVersionUID = -5704222503252328862L;
 
 	@Id
-	@Column(name = "Region_Code", length = 2)
+	@Column(name = "Id", length = 6)
 	@GeneratedValue
+	private Integer id;
+	
+	
+	@Column(name = "Region_Code", length = 2)
 	private String regionCode;
 	
 	@Column(name = "Region_Name", length = 20)
@@ -52,6 +56,24 @@ public class Region implements Serializable {
 		this.regionCode = regionCode;
 		this.regionName = regionName;
 
+	}
+
+	/**
+	 * Primary Key for Region
+	 * 
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * Primary Key for Region
+	 * 
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**

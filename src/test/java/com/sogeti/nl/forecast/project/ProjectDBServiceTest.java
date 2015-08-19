@@ -30,28 +30,58 @@ public class ProjectDBServiceTest extends AbstractTest {
 		projectDBService.setEntityManager(getEntityManager());
 	}
 
-	public void insertProject(){
-		
+	private Project createProject(int projectCode, String projectName) {
+
+		Project project = new Project();
+		project.setProjectCode(projectCode);
+		project.setProjectName(projectName);
+		project.setStatus(Status.active);
+		return project;
+
 	}
-	
-	
+
 	@Test
 	public void testInsertProject() {
 
-		Project project = new Project();
-		project.setProjectCode(112300);
-		project.setProjectName("Digilevering");
-		project.setStatus(Status.active);
+		Project project = createProject(123454, "Digilevering");
 		getTransaction().begin();
 		projectDBService.persist(project);
 		getTransaction().commit();
 		Assert.assertNotNull(project.getId());
 
 	}
-	
-	public void testSearchProject(){
-		
+
+	@Test
+	public void testSearchProject() {
+
+		Project project = createProject(34567, "ForecastApp");
+		getTransaction().begin();
+		projectDBService.persist(project);
+		getTransaction().commit();
+		project = projectDBService.findByProperty(Project.class, "projectCode",
+				34567);
+		Assert.assertNotNull(project);
+
 	}
 
-	
+	@Test
+	public void testUpdateProject() {
+		Project project = createProject(56789, "UMDashboard");
+		getTransaction().begin();
+		projectDBService.persist(project);
+		getTransaction().commit();
+		project = projectDBService.findByProperty(Project.class, "projectCode",
+				56789);
+
+		project.setProjectName("NS HighSpeed");
+		project.setStatus(Status.inactive);
+		getTransaction().begin();
+		projectDBService.merge(project);
+		getTransaction().commit();
+		project = projectDBService.findByProperty(Project.class, "projectCode",
+				56789);
+		Assert.assertEquals(project.getProjectName(), "NS HighSpeed");
+
+	}
+
 }
